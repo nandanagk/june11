@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Rohit ❤️</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #75aadb; /* Argentina Sky Blue */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .container {
+            background: #ffffff; /* White card */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            border-top: 10px solid #75aadb;
+            border-bottom: 10px solid #75aadb;
+            max-width: 440px;
+            width: 90%;
+        }
+        h1 {
+            color: #111111;
+            font-size: 24px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .subtext {
+            color: #555555;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+            height: 50px;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .btn-blue {
+            background-color: #75aadb;
+            color: white;
+        }
+        .btn-blue:hover {
+            transform: scale(1.1);
+            background-color: #fcbf49; /* Gold on hover */
+            color: #111111;
+        }
+        .btn-grey {
+            background-color: #555555;
+            color: white;
+            position: absolute;
+            left: 55%;
+        }
+        .hidden-section {
+            display: none;
+        }
+        .success-message h2 {
+            color: #75aadb;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        .success-message p {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333333;
+            margin: 0;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="card">
+        <div id="step1">
+            <h1>Hey Rohit, Nandana has a question for you... 😊</h1>
+            <div class="subtext">Are you free on June 11? ❤️</div>
+            <div class="buttons">
+                <button class="btn-blue" onclick="goToStep2()">Yes</button>
+                <button id="noBtn1" class="btn-grey" onmouseover="moveButton('noBtn1')" onclick="moveButton('noBtn1')">No</button>
+            </div>
+        </div>
+        
+        <div id="step2" class="hidden-section">
+            <h1>Nandana misses you... 🥺</h1>
+            <div class="subtext">Can we use this match to catch up and give "us" another chance? ❤️</div>
+            <div class="buttons">
+                <button class="btn-blue" onclick="showSuccess()">Yes</button>
+                <button id="noBtn2" class="btn-grey" onmouseover="moveButton('noBtn2')" onclick="moveButton('noBtn2')">No</button>
+            </div>
+        </div>
+        
+        <div id="successSection" class="hidden-section success-message">
+            <h2>Vamos!!! 🇦🇷🔥</h2>
+            <p>World Cup watch confirmed for Rohit & Nandana! ⚽🥳</p>
+        </div>
+    </div>
+
+    <script>
+        function moveButton(buttonId) {
+            const noBtn = document.getElementById(buttonId);
+            const x = Math.random() * (window.innerWidth - 150) - (window.innerWidth / 2) + 75;
+            const y = Math.random() * (window.innerHeight - 150) - (window.innerHeight / 2) + 75;
+            
+            noBtn.style.left = 'auto';
+            noBtn.style.transform = translate(${x}px, ${y}px);
+        }
+
+        function goToStep2() {
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+        }
+
+        function showSuccess() {
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('successSection').style.display = 'block';
+            document.body.style.backgroundColor = '#fcbf49'; /* Turns background gold */
+        }
+    </script>
+</body>
+</html>
